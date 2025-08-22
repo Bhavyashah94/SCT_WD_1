@@ -3,30 +3,98 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
     <title>Bhavya Shah</title>
   </head>
   <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="">Bhavya Shah</a></li>
-                <li class="nav-spacer"></li>
-                <li><a href="">Experience</a></li>
-                <li><a href="">Projects</a></li>
-                <li><a href="">Education</a></li>
-                <li><a href="">Contact Me</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">
+          <a href="#">Bhavya Shah</a>
+        </div>
+        <div class="toggle-btn">☰</div>
+        <div class="menu">
+          <ul>
+            <li class="nav-links"><a href="#experience">Experience</a></li>
+            <li class="nav-links"><a href="#projects">Projects</a></li>
+            <li class="nav-links"><a href="#education">Education</a></li>
+            <li class="nav-links"><a href="#contact">Contact Me</a></li>
+          </ul>
+        </div>
+      </nav>
     </header>
     <main>
-        <section class="hero">
-            <h1>Hero Section</h1>
-        </section>
-        <section id="experience"></section>
-        <section></section>
-        <section></section>
-        <section></section>
+      <section class="hero">
+        <h1>Hello, I'm Bhavya Shah</h1>
+        <p>A passionate web developer specializing in creating responsive and user-friendly websites.</p>
+      </section>
+      
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="experience-item">
+          <h3>Software Engineer | Tech Innovators Inc.</h3>
+          <p class="date">Jan 2022 - Present</p>
+          <p>Developed and maintained web applications using JavaScript and React. Collaborated with a team of 5 to launch a new product feature, resulting in a 15% increase in user engagement.</p>
+        </div>
+        <div class="experience-item">
+          <h3>Junior Developer | Web Solutions Co.</h3>
+          <p class="date">Jun 2020 - Dec 2021</p>
+          <p>Assisted in the development of client websites using HTML, CSS, and jQuery. Gained experience in responsive design and cross-browser compatibility.</p>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="https://picsum.photos/400/250" alt="Project 1" />
+            <h3>Portfolio Website</h3>
+            <p>A personal portfolio site to showcase my skills and projects. Built with HTML, CSS, and JavaScript.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://picsum.photos/400/250" alt="Project 2" />
+            <h3>E-commerce Store</h3>
+            <p>A mock e-commerce store with a shopping cart and checkout functionality. Developed using React and Node.js.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="https://picsum.photos/400/250" alt="Project 3" />
+            <h3>Recipe App</h3>
+            <p>A web application that allows users to search for recipes. Fetches data from a public API.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo</a>
+              <a href="#" target="_blank">GitHub Repo</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education">
+        <h2>Education</h2>
+        <div class="education-item">
+          <h3>Bachelor of Engineering in Information Technology</h3>
+          <p>Atharva College of Engineering</p>
+          <p class="date">2023 - 2027</p>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out to me via email or connect with me on social media.</p>
+        <ul>
+          <li>Email: <a href="mailto:bhavyashah@gmail.com">bhavyashah@gmail.com</a></li>
+          <li>LinkedIn: <a href="https://www.linkedin.com/in/bhavya-shah-b51a58336/">Bhavya Shah at LinkedIn</a></li>
+        </ul>
+      </section>
+
     </main>
   </body>
 </html>
