@@ -1,0 +1,47 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+nav {
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    width: fill;
+    background: goldenrod;
+    z-index: 999;
+
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0%;
+    padding: 1rem 2rem;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 1.3rem;
+}
+
+.nav-spacer {
+    flex-grow: 1;
+}
+
+main {
+    height: fit-content;
+}
+
+/* Hero Section */
+
+section.hero {
+    height: 90dvh;
+    margin: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: aquamarine;
+}
