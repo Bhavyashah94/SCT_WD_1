@@ -176,6 +176,7 @@ h2 {
 /* Education & Contact Sections */
 #education {
   background-color: var(--light-background);
+  text-align: center;
 }
 
 #contact {
