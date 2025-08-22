@@ -1,13 +1,16 @@
 :root {
   /* Color Palette */
-  --primary-color: #007bff; /* A vibrant blue for main elements */
-  --secondary-color: #6c757d; /* A muted gray for secondary text and borders */
-  --accent-color: #28a745; /* A green for accents like hover effects */
-  --light-background: #f8f9fa; /* A very light gray for section backgrounds */
-  --dark-background: #e9ecef; /* A slightly darker gray for alternating sections */
-  --text-color: #343a40; /* A dark gray for body text */
-  --heading-color: #007bff; /* Using the primary color for headings */
+  --primary-color: #5a54e9; /* A deep, professional blue-purple */
+  --secondary-color: #6c757d; /* Muted gray for secondary text */
+  --accent-color: #00bcd4; /* A vibrant, cool teal for accents */
+  --background-light: #f4f7f6; /* Off-white for light sections */
+  --background-dark: #e1e4e8; /* A cool light gray for alternating sections */
+  --text-color: #343a40; /* Dark gray for body text */
+  --heading-color: #212529; /* Almost black for strong contrast */
   --white: #fff;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --box-shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15),
+    0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 * {
@@ -18,47 +21,62 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--text-color);
   line-height: 1.6;
 }
 
+/* General Layout & Typography */
+h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--heading-color);
+}
+
+section {
+  padding: 4rem 1rem;
+  margin: auto;
+}
+
 nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: 0.5rem;
-  border-radius: 0.5rem;
-  background: var(--light-background);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 1rem;
+  background: var(--white);
+  box-shadow: var(--box-shadow);
   z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  transition: transform 0.3s ease-in-out; 
-  
+  padding: 0.75rem 1.5rem;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: calc(100% - 2rem);
+  max-width: 1000px;
 }
 
 .nav-hidden {
-  transform: translateY(-120%);
+  transform: translateY(-130%) translateX(-50%);
 }
 
 .logo a {
   text-decoration: none;
   color: var(--primary-color);
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 1.75rem;
+  font-weight: 700;
 }
 
 .toggle-btn {
   display: none;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   line-height: 1;
   cursor: pointer;
   user-select: none;
   padding: 0.5rem;
+  color: var(--primary-color);
 }
 
 .menu ul {
@@ -67,32 +85,24 @@ nav {
 }
 
 .menu ul li {
-  padding: 0.5rem;
-  border-radius: 10px 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .menu a {
   text-decoration: none;
   color: var(--text-color);
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .menu ul li:hover {
   background-color: var(--accent-color);
+  transform: translateY(-2px);
 }
-
-
-section {
-  padding: 2rem 1rem;
-  margin: auto;
-}
-
-h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem;
-  color: var(--heading-color);
+.menu ul li:hover a {
+  color: var(--white);
 }
 
 /* Hero Section */
@@ -105,37 +115,80 @@ h2 {
   text-align: center;
   background-color: var(--primary-color);
   color: var(--white);
+  padding-top: 5rem;
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  font-size: 4rem;
+  margin-bottom: 0.75rem;
   color: var(--white);
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  max-width: 600px;
 }
 
-/* Experience Section */
-#experience {
-  background-color: var(--light-background);
+/* Timeline Sections */
+#experience,
+#education {
+  background-color: var(--background-light);
 }
 
-.experience-item {
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-left: 20px;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: 2px;
+  height: 100%;
+  background-color: var(--secondary-color);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 2rem 0 2rem 1rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 2.5rem;
+  left: 14px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 3px var(--accent-color);
+}
+
+.timeline-content {
   background-color: var(--white);
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.experience-item h3 {
+.timeline-content:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.timeline-content h3 {
   margin-bottom: 0.5rem;
   color: var(--primary-color);
 }
 
-.experience-item .date {
+.timeline-content .date {
   font-style: italic;
   color: var(--secondary-color);
   margin-bottom: 1rem;
@@ -143,7 +196,7 @@ h2 {
 
 /* Projects Section */
 #projects {
-  background-color: var(--dark-background);
+  background-color: var(--background-dark);
 }
 
 .projects-grid {
@@ -154,33 +207,65 @@ h2 {
 
 .project-card {
   background-color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
 }
 
 .project-card img {
-    width: 100%;
-  border-radius: 4px;
+  width: 100%;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.project-skills {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
 }
 
 .project-links a {
   text-decoration: none;
   color: var(--primary-color);
-  margin: 0 0.5rem;
+  margin: 0 0.75rem;
   font-weight: bold;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.project-links a:hover {
+  color: var(--accent-color);
 }
 
 /* Education & Contact Sections */
 #education {
-  background-color: var(--light-background);
-  text-align: center;
+  background-color: var(--background-light);
+
 }
 
 #contact {
-  background-color: var(--dark-background);
+  background-color: var(--background-dark);
   text-align: center;
 }
 
@@ -196,10 +281,35 @@ h2 {
 #contact a {
   color: var(--primary-color);
   text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+#contact a:hover {
+  color: var(--accent-color);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--background-light);
+  color: var(--secondary-color);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--background-dark);
 }
 
 /* Media Query for smaller screens */
 @media (max-width: 768px) {
+  nav {
+    top: 0.5rem;
+    left: 0.5rem;
+    transform: none;
+    width: calc(100% - 1rem);
+    border-radius: 0.5rem;
+  }
+  .nav-hidden {
+    transform: translateY(-120%);
+  }
   .menu {
     display: none;
     flex-direction: column;
@@ -208,9 +318,10 @@ h2 {
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--light-background);
+    background: var(--white);
     border-radius: 0 0 0.5rem 0.5rem;
     padding-bottom: 0.5rem;
+    box-shadow: var(--box-shadow);
   }
 
   .toggle-btn {
@@ -228,6 +339,7 @@ h2 {
 
   nav.open {
     border-radius: 0.5rem 0.5rem 0rem 0rem;
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5); 
   }
 
   nav.open .menu {
@@ -236,5 +348,14 @@ h2 {
 
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  .timeline-container::before {
+    left: 10px;
+  }
+  .timeline-dot {
+    left: 4px;
+  }
+  .timeline-item {
+    padding-left: 3rem;
   }
 }
